@@ -6,6 +6,7 @@ type Props = {
   /** classe aspect-* (anche con prefissi lg:) */
   ratio?: string;
   warm?: boolean;
+  hotspot?: { x: number; y: number };
   par?: number;
   reveal?: boolean;
   px?: boolean;
@@ -18,7 +19,7 @@ type Props = {
 };
 
 // Foto con segnaposto a grana (.ph / .ph__in della demo)
-export default function Photo({ src, alt, ratio = "", warm, par, reveal, px, sizes, priority, className = "", id, imgClass = "" }: Props) {
+export default function Photo({ src, alt, ratio = "", warm, hotspot, par, reveal, px, sizes, priority, className = "", id, imgClass = "" }: Props) {
   return (
     <div
       id={id}
@@ -28,7 +29,7 @@ export default function Photo({ src, alt, ratio = "", warm, par, reveal, px, siz
       data-px={px ? "" : undefined}
     >
       <div data-ph-in className={`absolute -inset-[10%] will-change-transform ${warm ? "grain-warm" : "grain"}`}>
-        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className={`object-cover ${imgClass}`} />
+        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className={`object-cover ${imgClass}`} style={hotspot && { objectPosition: `${hotspot.x * 100}% ${hotspot.y * 100}%` }} />
       </div>
     </div>
   );

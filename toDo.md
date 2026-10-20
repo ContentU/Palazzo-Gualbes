@@ -1,0 +1,1 @@
+- rivedi responsive

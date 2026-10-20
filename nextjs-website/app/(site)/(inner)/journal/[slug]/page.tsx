@@ -9,7 +9,7 @@ import { getArticle, getArticles, getCategories } from "@/lib/content";
 export const instant = false;
 
 export async function generateStaticParams() {
-  return (await getArticles()).filter((a) => a.body).map((a) => ({ slug: a.slug }));
+  return (await getArticles()).map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/journal/[slug]">): Promise<Metadata> {
@@ -23,16 +23,16 @@ export default async function ArticlePage({ params }: PageProps<"/journal/[slug]
     getArticles(),
     getCategories(),
   ]);
-  if (!article?.body) notFound();
+  if (!article) notFound();
   const cat = categories.find((c) => c.slug === article.category)?.title ?? article.category;
   const related = (article.related ?? []).map((s) => articles.find((a) => a.slug === s)!).filter(Boolean);
   return (
     <>
       <article>
         <ArticleHead article={article} category={cat} />
-        <ArticleBody body={article.body} />
+        {article.body && <ArticleBody body={article.body} />}
       </article>
-      <MoreArticles articles={related} categories={categories} />
+      {related.length > 0 && <MoreArticles articles={related} categories={categories} />}
     </>
   );
 }

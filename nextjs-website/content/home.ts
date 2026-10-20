@@ -46,10 +46,10 @@ export const home: HomePage = {
     title: "Ultime notizie dal Palazzo",
     lead: "Storie, luoghi e consigli dal centro storico di Palermo.",
     posts: [
-      { title: "La Shera de Cancellarii, la via dei notai", href: "/journal/palermo-arabo-normanna-in-una-mattina", meta: "Storia | 2 novembre 2026", image: demo("20", true) },
+      { title: "La Shera de Cancellarii, la via dei notai", href: "/journal/la-shera-de-cancellarii-la-via-dei-notai", meta: "Storia | 2 novembre 2026", image: demo("20", true) },
       { title: "Palermo arabo-normanna in una mattina", href: "/journal/palermo-arabo-normanna-in-una-mattina", meta: "Itinerari | 9 novembre 2026", image: demo("16") },
-      { title: "Forni e pasticcerie dell'Albergheria", href: "/journal/palermo-arabo-normanna-in-una-mattina", meta: "Sapori | 16 novembre 2026", image: demo("09", true) },
-      { title: "Il restauro di Palazzo Gualbes", href: "/journal/palermo-arabo-normanna-in-una-mattina", meta: "Design | 23 novembre 2026", image: demo("22") },
+      { title: "Forni e pasticcerie dell'Albergheria", href: "/journal/forni-e-pasticcerie-dell-albergheria", meta: "Sapori | 16 novembre 2026", image: demo("09", true) },
+      { title: "Il restauro di Palazzo Gualbes", href: "/journal/il-restauro-di-palazzo-gualbes", meta: "Design | 23 novembre 2026", image: demo("22") },
     ],
   },
   recommended: { title: "Recommended by", logos: ["Logo", "Logo", "Logo", "Logo"] },

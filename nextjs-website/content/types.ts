@@ -1,6 +1,7 @@
 // Tipi dei contenuti: solo i campi che la demo mostra. In Phase 8 gli schemi Sanity li rispecchiano uno a uno.
 
-export type Img = { src: string; alt: string; warm?: boolean };
+/** hotspot: punto focale scelto in Studio (0–1) */
+export type Img = { src: string; alt: string; warm?: boolean; hotspot?: { x: number; y: number } };
 export type LinkItem = { label: string; href: string };
 
 export type SiteSettings = {
