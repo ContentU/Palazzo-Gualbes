@@ -1,0 +1,19 @@
+PALAZZO GUALBES — Prototipo demo (ottobre 2026)
+
+Caricamento sul server
+Carica tutto il contenuto di questa cartella (file .html, cartella assets, robots.txt) nella cartella del sito, ad esempio /demo-gualbes/. La home è index.html.
+Il progetto è statico: non serve PHP né database. Tutte le librerie e i font sono inclusi, nessuna dipendenza da CDN esterne.
+
+Pagine
+index.html     Home
+about.html     Il Palazzo / Chi siamo
+camere.html    Suite e appartamenti
+suite.html     Dettaglio Family Suite
+journal.html   Journal
+articolo.html  Articolo del Journal
+contatti.html  Contatti (form dimostrativo: non invia email)
+
+Note
+- Le foto in assets/demo sono foto demo: per sostituirle basta sovrascrivere i file mantenendo lo stesso nome.
+- Le pagine hanno il meta "noindex" e robots.txt blocca l'indicizzazione: la demo non comparirà su Google.
+- Font Evolve Early inclusi nelle pagine per uso dimostrativo; per la pubblicazione verificare la licenza webfont.
