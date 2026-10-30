@@ -20,6 +20,10 @@ export const contact: ContactPage = {
     title: "Nel cuore del centro storico",
     text: "Palazzo Gualbes si trova in Via del Celso, nel centro storico di Palermo, vicino ai principali monumenti e a Via Maqueda.",
     link: { label: "Contattaci prima dell'arrivo", href: "#richiesta" },
+    note: {
+      title: "Accessibilità",
+      text: "L'edificio non dispone di ascensore e presenta rampe di scale. Gli appartamenti non sono accessibili a persone con mobilità ridotta.",
+    },
   },
   faq: [
     {
@@ -36,11 +40,6 @@ export const contact: ContactPage = {
       num: "03",
       title: "In auto",
       text: "L'accesso al centro storico può essere difficoltoso per chi arriva in auto, a causa delle limitazioni della ZTL. Palazzo Gualbes dispone di una soluzione di parcheggio convenzionato e può fornire informazioni sulle modalità di accesso.",
-    },
-    {
-      num: "04",
-      title: "Accessibilità",
-      text: "L'edificio non dispone di ascensore e presenta rampe di scale. Gli appartamenti non sono accessibili a persone con mobilità ridotta.",
     },
   ],
 };

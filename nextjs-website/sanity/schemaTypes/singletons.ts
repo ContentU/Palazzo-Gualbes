@@ -138,7 +138,7 @@ export const contactPageType = defineType({
     list("info", "infoItem", [str("title"), lines("lines"), str("href")]),
     str("formTitle"),
     txt("formText"),
-    obj("arrive", [str("title"), txt("text"), link("link")]),
+    obj("arrive", [str("title"), txt("text"), link("link"), obj("note", [str("title"), txt("text")])]),
     list("faq", "faqItem", [str("num"), str("title"), txt("text"), list("details", "detail", [str("term"), txt("desc")])]),
   ],
 });

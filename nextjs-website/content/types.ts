@@ -132,7 +132,8 @@ export type ContactPage = {
   info: { title: string; lines: string[]; href?: string }[];
   formTitle: string;
   formText?: string;
-  arrive: { title: string; text: string; link: LinkItem };
+  /** note: appendice sotto l'accordion (es. accessibilità) */
+  arrive: { title: string; text: string; link: LinkItem; note?: { title: string; text: string } };
   faq: { num: string; title: string; text: string; details?: { term: string; desc: string }[] }[];
 };
 
