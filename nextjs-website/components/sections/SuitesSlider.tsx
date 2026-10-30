@@ -76,7 +76,7 @@ export default function SuitesSlider({ coverImage, coverTitle, cta, asideText, a
                 <div className="flex flex-col items-start gap-4.5 lg:gap-0 lg:flex-1 lg:max-w-[36vw] lg:h-(--h) lg:pl-[calc(var(--h)*.06)] lg:pt-[calc(var(--h)*.3)] lg:pb-[calc(var(--h)*.05)]">
                   <h3 className="font-display font-extrabold text-h3 lg:text-[length:calc(var(--h)*.135)] leading-none tracking-tight text-balance text-white">{s.title}</h3>
                   <p className="max-w-[20em] text-[length:clamp(15px,calc(var(--h)*.0298),22px)] leading-[1.27] lg:mt-auto lg:mb-[calc(var(--h)*.06)]">{s.text}</p>
-                  {s.href && <MoreLink href={s.href}>Scopri di più</MoreLink>}
+                  {s.href && <MoreLink href={s.href}>{s.linkLabel || "Scopri di più"}</MoreLink>}
                 </div>
               </article>
             </div>

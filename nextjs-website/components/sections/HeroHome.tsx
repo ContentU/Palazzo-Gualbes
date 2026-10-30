@@ -55,11 +55,14 @@ export default function HeroHome({ hero }: { hero: HomePage["hero"] }) {
     <section
       ref={root}
       id="hero"
+      // --n: righe del titolo. La foto parte sempre 1,77 righe sotto l'inizio del titolo (come la demo con 6 righe:
+      // margine -4,23 righe), così le prime righe restano rosse e diventano bianche quando la foto ci passa sopra
+      style={{ "--n": hero.title.length } as React.CSSProperties}
       className="[--fs:clamp(1.6rem,7.2vw,3rem)] [--top:calc(var(--spacing-header-sm)+22px)] [--iw:calc(100%-2*var(--spacing-gutter))] lg:[--fs:var(--text-h2)] lg:[--top:calc(var(--spacing-header)+clamp(14px,2.6vw,40px))] lg:[--iw:min(70.2vw,1100px)]"
     >
       <div ref={inner} className="relative pt-(--top)">
         <h1 className={`relative z-1 text-red ${title}`}><Lines lines={hero.title} /></h1>
-        <div ref={img} className="relative z-2 w-(--iw) aspect-portrait lg:aspect-hero mx-auto mt-[calc(var(--fs)*-4.23)] will-change-transform">
+        <div ref={img} className="relative z-2 w-(--iw) aspect-portrait lg:aspect-hero mx-auto mt-[calc(var(--fs)*(1.77_-_var(--n)))] will-change-transform">
           <div ref={rev} className="absolute inset-0 overflow-hidden">
             <Image src={hero.image.src} alt={hero.image.alt} fill priority sizes="(min-width: 901px) 70vw, 100vw" className="object-cover object-[50%_35%]" />
             <div className="absolute inset-0 bg-black/22" />

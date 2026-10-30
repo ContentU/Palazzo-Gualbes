@@ -8,12 +8,14 @@ export const suiteCard: SuiteCard = {
   text: "52 m², zona living e balcone su Discesa Santamarina. Uno spazio accogliente con cucina attrezzata e arredi personalizzati, fino a tre ospiti.",
   image: demo("17"),
   href: "/camere/suite",
+  linkLabel: "Scopri la Suite",
 };
 export const familySuiteCard: SuiteCard = {
   title: "Family Suite",
   text: "Due camere matrimoniali, ambienti da condividere e una terrazza privata di 25 m² con vista sulla cupola del Teatro Massimo. Fino a cinque ospiti.",
   image: demo("03", true),
   href: "/camere/family-suite",
+  linkLabel: "Scopri la Family Suite",
 };
 // Appartamento 14 e Appartamento 4: schede incomplete, non pubblicare (testi V1)
 

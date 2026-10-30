@@ -58,7 +58,7 @@ export const suitesSliderType = defineType({
     link("cta"),
     txt("asideText"),
     link("asideLink"),
-    list("suites", "suiteCard", [str("title"), txt("text"), photo("image"), str("href")]),
+    list("suites", "suiteCard", [str("title"), txt("text"), photo("image"), str("href"), str("linkLabel")]),
   ],
 });
 

@@ -17,7 +17,7 @@ export default function ArticleCard({ article, category, hidden, filtered }: { a
       <Meta strong={category}>{article.date}</Meta>
       <h3 className="font-display font-semibold text-h6 tracking-tight text-balance text-red">{article.title}</h3>
       <p className="text-caption max-w-[34em]">{article.excerpt}</p>
-      <MoreLink>Leggi</MoreLink>
+      <MoreLink>Leggi l&apos;articolo</MoreLink>
     </Link>
   );
 }

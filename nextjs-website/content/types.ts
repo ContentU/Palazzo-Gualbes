@@ -21,8 +21,8 @@ export type SiteSettings = {
   credits: string;
 };
 
-/** href facoltativo: senza, la card non è cliccabile (es. attività di Experience) */
-export type SuiteCard = { title: string; text: string; image: Img; href?: string };
+/** href facoltativo: senza, la card non è cliccabile (es. attività di Experience); linkLabel: testo del link, se vuoto "Scopri di più" */
+export type SuiteCard = { title: string; text: string; image: Img; href?: string; linkLabel?: string };
 
 export type SuitesSliderData = {
   coverImage: Img;

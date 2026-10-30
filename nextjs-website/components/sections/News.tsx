@@ -29,7 +29,7 @@ export default function News({ title, lead, link, posts = [] }: HomePage["news"]
                 }`}
               >
                 <h3 className="font-display font-semibold text-h5 leading-none tracking-tight text-balance text-red">{p.title}</h3>
-                <MoreLink href={p.href}>Scopri di più</MoreLink>
+                <MoreLink href={p.href}>Leggi l&apos;articolo</MoreLink>
               </div>
             ))}
           </div>
