@@ -1,3 +1,4 @@
+import Text from "@/components/ui/Text";
 import Photo from "@/components/ui/Photo";
 import Gallery from "./Gallery";
 import type { Suite } from "@/content/types";
@@ -10,7 +11,7 @@ export default function SuiteIntro({ intro, gallery }: Pick<Suite, "intro" | "ga
         <Photo {...intro.image} ratio="aspect-square" par={8} reveal sizes="(min-width: 901px) 54vw, 100vw" className="col-span-full lg:col-[1/14]" />
         <div className="col-span-full mt-8 lg:col-[17/-1] lg:mt-0 self-end grid gap-stack-md pb-[2vw]">
           <h2 data-words className="font-display font-semibold text-h4 tracking-tight text-balance text-red">{intro.title}</h2>
-          <p data-fade className="leading-[1.3]">{intro.text}</p>
+          <Text data-fade className="leading-[1.3]" text={intro.text} />
         </div>
       </div>
       <Gallery images={gallery} />

@@ -3,10 +3,10 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 import { fieldCls, labelCls, inputCls } from "@/components/ui/fields";
-import type { JournalPage } from "@/content/types";
+import type { NewsletterData } from "@/content/types";
 
 // .nl: iscrizione (prototipo: nessun invio, il pulsante diventa "Iscritto")
-export default function Newsletter({ title, text, label, placeholder, button, done }: JournalPage["newsletter"]) {
+export default function Newsletter({ title, text, label, placeholder, button, done }: NewsletterData) {
   const [sent, setSent] = useState(false);
   return (
     <section className="bg-ivory py-section-sm px-gutter grid grid-cols-1 lg:grid-cols-2 gap-[clamp(30px,5vw,80px)] items-end">

@@ -5,12 +5,13 @@ import { useRef } from "react";
 import Photo from "@/components/ui/Photo";
 import Button from "@/components/ui/Button";
 import MoreLink from "@/components/ui/MoreLink";
+import Text from "@/components/ui/Text";
 import { gsap, useGSAP, E, splitWords, reduceMotion, isDesktop } from "@/lib/motion";
 import type { SuitesSliderData } from "@/content/types";
 
 // Suites su rosso: da desktop la sezione si blocca e le slide scorrono in orizzontale.
 // Eccezione del design system: qui le misure dipendono da --h (vedi _docs/design-system.md).
-export default function SuitesSlider({ coverImage, coverTitle, cta, asideText, suites }: SuitesSliderData) {
+export default function SuitesSlider({ coverImage, coverTitle, cta, asideText, asideLink, suites }: SuitesSliderData) {
   const root = useRef<HTMLElement>(null);
   const pin = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLDivElement>(null);
@@ -61,7 +62,10 @@ export default function SuitesSlider({ coverImage, coverTitle, cta, asideText, s
               <Button href={cta.href} className="absolute right-[calc(var(--h)*.03)] bottom-[calc(var(--h)*.033)]">{cta.label}</Button>
             </div>
             <div className="relative z-1 flex flex-row items-center gap-6 lg:flex-none lg:flex-col lg:items-stretch lg:justify-between lg:gap-0 lg:w-[calc(var(--h)*.255)] lg:ml-[calc(var(--h)*.056)] lg:h-(--h) lg:pt-[calc(var(--h)*.157)]">
-              <p className="font-bold text-[length:clamp(12px,calc(var(--h)*.0217),16px)] leading-[1.05]">{asideText}</p>
+              <div className="grid gap-4 content-start justify-items-start">
+                <Text className="font-bold text-[length:clamp(12px,calc(var(--h)*.0217),16px)] leading-[1.05]" text={asideText} />
+                {asideLink && <MoreLink href={asideLink.href}>{asideLink.label}</MoreLink>}
+              </div>
               <Image src="/images/fiore-panna.webp" alt="" width={600} height={600} className="w-30 lg:w-full aspect-square object-contain lg:-mb-[calc(var(--h)*.03)]" />
             </div>
           </div>
@@ -72,7 +76,7 @@ export default function SuitesSlider({ coverImage, coverTitle, cta, asideText, s
                 <div className="flex flex-col items-start gap-4.5 lg:gap-0 lg:flex-1 lg:max-w-[36vw] lg:h-(--h) lg:pl-[calc(var(--h)*.06)] lg:pt-[calc(var(--h)*.3)] lg:pb-[calc(var(--h)*.05)]">
                   <h3 className="font-display font-extrabold text-h3 lg:text-[length:calc(var(--h)*.135)] leading-none tracking-tight text-balance text-white">{s.title}</h3>
                   <p className="max-w-[20em] text-[length:clamp(15px,calc(var(--h)*.0298),22px)] leading-[1.27] lg:mt-auto lg:mb-[calc(var(--h)*.06)]">{s.text}</p>
-                  <MoreLink href={s.href}>Scopri di più</MoreLink>
+                  {s.href && <MoreLink href={s.href}>Scopri di più</MoreLink>}
                 </div>
               </article>
             </div>

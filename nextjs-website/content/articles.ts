@@ -9,17 +9,18 @@ export const categories: Category[] = [
 ];
 
 export const journal: JournalPage = {
-  title: "Journal",
-  lead: "Storie del Palazzo, itinerari nel centro storico e i nostri indirizzi preferiti per vivere Palermo come chi ci abita.",
-  featured: "palermo-arabo-normanna-in-una-mattina",
-  newsletter: {
-    title: "Lettere dal Palazzo",
-    text: "Una mail al mese con le nuove storie del Journal, gli eventi in città e le aperture delle date. Niente di più.",
-    label: "La tua email",
-    placeholder: "nome@email.it",
-    button: "Iscriviti",
-    done: "Iscritto",
+  seo: {
+    title: "Journal — Palazzo Gualbes",
+    description: "Storie, cultura e tradizioni di Palermo nel Journal di Palazzo Gualbes.",
   },
+  title: "Journal",
+  lead: [
+    "Storie, luoghi e prospettive per conoscere Palermo e il mondo di Palazzo Gualbes.",
+    "Un diario dedicato alla città e alla sua identità, tra storia, cultura, tradizioni ed esperienze.",
+    "Uno spazio per condividere approfondimenti e suggerimenti che accompagnano il viaggio, anche prima di arrivare a Palermo.",
+  ].join("\n\n"),
+  // articoli demo: i testi V1 prevedono articoli da redigere separatamente
+  featured: "palermo-arabo-normanna-in-una-mattina",
 };
 
 // In ordine di pubblicazione (il primo è l'articolo in evidenza)

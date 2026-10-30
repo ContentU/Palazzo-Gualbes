@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import Photo from "@/components/ui/Photo";
 import MoreLink from "@/components/ui/MoreLink";
+import Text from "@/components/ui/Text";
 import { gsap, useGSAP, reduceMotion } from "@/lib/motion";
 import type { HomePage } from "@/content/types";
 
@@ -43,7 +44,7 @@ export default function Experience({ marquee, image, text, link }: HomePage["exp
       <div className="relative grid grid-cols-24 gap-x-grid px-gutter">
         <Photo id="expImg" {...image} ratio="aspect-tall" sizes="(min-width: 901px) 33vw, 62vw" className="self-start col-[1/16] mt-17.5 lg:col-[3/11] lg:row-1 lg:mt-0" />
         <div className="col-span-full row-2 mt-10 lg:col-[11/21] lg:row-1 lg:self-end lg:mt-0 lg:pl-[clamp(12px,2.3vw,32px)] mb-[clamp(10px,3.5vw,48px)] grid gap-stack-md">
-          <p data-fade className="max-w-[25em]">{text}</p>
+          <Text data-fade className="max-w-[25em]" text={text} />
           <MoreLink href={link.href} fade>{link.label}</MoreLink>
         </div>
       </div>

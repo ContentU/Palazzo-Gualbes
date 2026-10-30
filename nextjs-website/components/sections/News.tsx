@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Photo from "@/components/ui/Photo";
 import MoreLink from "@/components/ui/MoreLink";
+import Text from "@/components/ui/Text";
 import type { HomePage } from "@/content/types";
 
 // News: slider a puntini; la foto nuova entra da destra sopra la precedente
-export default function News({ title, lead, posts }: HomePage["news"]) {
+export default function News({ title, lead, link, posts = [] }: HomePage["news"]) {
   const [cur, setCur] = useState(0);
   const [was, setWas] = useState(-1);
   const go = (k: number) => { if (k === cur) return; setWas(cur); setCur(k); };
@@ -15,7 +16,9 @@ export default function News({ title, lead, posts }: HomePage["news"]) {
     <section id="journal" className="pt-[clamp(80px,7.6vw,110px)] pb-[clamp(80px,7vw,100px)]">
       <div className="px-[clamp(20px,10vw,137px)]">
         <h2 data-words className="font-display font-semibold text-h4 leading-none tracking-tight text-balance text-red">{title}</h2>
-        <p className="mt-3.5 max-w-[46em]">{lead}</p>
+        <Text className="mt-3.5 max-w-[46em]" text={lead} />
+        {link && <MoreLink href={link.href} className="mt-stack-md">{link.label}</MoreLink>}
+        {posts.length > 0 && <>
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,.42fr)_minmax(0,.58fr)] gap-[clamp(24px,4.2vw,58px)] mt-[clamp(40px,5vw,72px)] items-start">
           <div aria-live="polite" className="relative min-h-55 mt-2.5 lg:min-h-[clamp(200px,22vw,300px)] lg:mt-[clamp(30px,10vw,140px)]">
             {posts.map((p, k) => (
@@ -58,6 +61,7 @@ export default function News({ title, lead, posts }: HomePage["news"]) {
             />
           ))}
         </div>
+        </>}
       </div>
     </section>
   );

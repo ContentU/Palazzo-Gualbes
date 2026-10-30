@@ -1,5 +1,5 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
-import { lines, list, obj, photo, slug, str, txt } from "./fields";
+import { lines, list, obj, photo, seo, slug, str, txt } from "./fields";
 
 export const categoryType = defineType({
   name: "category",
@@ -13,6 +13,7 @@ export const suiteType = defineType({
   title: "Suite",
   type: "document",
   fields: [
+    seo(),
     str("title"),
     slug(),
     str("subtitle"),

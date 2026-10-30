@@ -2,13 +2,15 @@
 
 import { useRef, useState, type FormEvent } from "react";
 import Button from "@/components/ui/Button";
+import Text from "@/components/ui/Text";
 import { fieldCls, labelCls, inputCls } from "@/components/ui/fields";
 import type { ContactPage } from "@/content/types";
 
 const sel = `${inputCls} select-arrow pr-5`;
 
 // Contatti: info + form (prototipo come nella demo: validazione, nessun invio reale fino a Phase 9)
-export default function ContactForm({ info, formTitle }: Pick<ContactPage, "info" | "formTitle">) {
+// apartments: titoli delle suite pubblicate (da Sanity), per la tendina "Appartamento"
+export default function ContactForm({ info, formTitle, formText, apartments }: Pick<ContactPage, "info" | "formTitle" | "formText"> & { apartments: string[] }) {
   const form = useRef<HTMLFormElement>(null);
   const [bad, setBad] = useState<string[]>([]);
   const [note, setNote] = useState("Ti rispondiamo entro 24 ore.");
@@ -45,6 +47,7 @@ export default function ContactForm({ info, formTitle }: Pick<ContactPage, "info
       </div>
       <div className="col-span-full lg:col-[11/-1]">
         <h2 data-words className="font-display font-semibold text-h5 leading-none tracking-tight text-balance text-red mb-[clamp(26px,3vw,44px)]">{formTitle}</h2>
+        <Text data-fade className="-mt-[clamp(10px,1.4vw,22px)] mb-[clamp(26px,3vw,44px)] max-w-[34em]" text={formText} />
         <form ref={form} noValidate onSubmit={submit} className="grid grid-cols-1 lg:grid-cols-2 gap-x-[clamp(18px,2.4vw,36px)] gap-y-[clamp(22px,2.4vw,32px)]">
           {sent ? (
             <div role="status" className="col-span-full bg-ivory p-[clamp(28px,3vw,44px)]">
@@ -57,11 +60,11 @@ export default function ContactForm({ info, formTitle }: Pick<ContactPage, "info
               <div className={fieldCls}><label className={labelCls} htmlFor="f-mail">Email</label><input className={cls("f-mail")} id="f-mail" name="email" type="email" required autoComplete="email" /></div>
               <div className={fieldCls}><label className={labelCls} htmlFor="f-tel">Telefono (facoltativo)</label><input className={inputCls} id="f-tel" name="tel" type="tel" autoComplete="tel" /></div>
               <div className={fieldCls}><label className={labelCls} htmlFor="f-apt">Appartamento</label>
-                <select className={sel} id="f-apt" name="apt"><option>Nessuna preferenza</option><option>Family Suite</option><option>Junior Suite</option><option>Deluxe Suite · da marzo 2027</option></select></div>
+                <select className={sel} id="f-apt" name="apt"><option>Nessuna preferenza</option>{apartments.map((a) => <option key={a}>{a}</option>)}</select></div>
               <div className={fieldCls}><label className={labelCls} htmlFor="f-in">Arrivo</label><input className={inputCls} id="f-in" name="arrivo" type="date" /></div>
               <div className={fieldCls}><label className={labelCls} htmlFor="f-out">Partenza</label><input className={inputCls} id="f-out" name="partenza" type="date" /></div>
               <div className={fieldCls}><label className={labelCls} htmlFor="f-osp">Ospiti</label>
-                <select className={sel} id="f-osp" name="ospiti" defaultValue="2">{[1, 2, 3, 4, 5, 6].map((n) => <option key={n}>{n}</option>)}</select></div>
+                <select className={sel} id="f-osp" name="ospiti" defaultValue="2">{[1, 2, 3, 4, 5].map((n) => <option key={n}>{n}</option>)}</select></div>
               <div className={fieldCls}><label className={labelCls} htmlFor="f-mot">Motivo del viaggio</label>
                 <select className={sel} id="f-mot" name="motivo"><option>Vacanza</option><option>Lavoro</option><option>Occasione speciale</option><option>Soggiorno lungo</option></select></div>
               <div className={`${fieldCls} col-span-full`}><label className={labelCls} htmlFor="f-msg">Messaggio</label>

@@ -5,10 +5,10 @@ import { useRef } from "react";
 import MainText from "./MainText";
 import Photo from "@/components/ui/Photo";
 import { gsap, useGSAP, reduceMotion } from "@/lib/motion";
-import type { AboutPage } from "@/content/types";
+import type { AboutTextData } from "@/content/types";
 
 // Il Palazzo: testo con collage, foglie di sfondo e immagine a tutta larghezza che si allarga entrando
-export default function AboutText({ full, ...text }: AboutPage["text"]) {
+export default function AboutText({ full, ...text }: AboutTextData) {
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {

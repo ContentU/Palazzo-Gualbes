@@ -31,7 +31,7 @@ export default function SuiteHero({ title, subtitle, cover, text, specs }: Pick<
       <div className="relative mx-gutter lg:mx-[8.1vw] [--fs:clamp(2.6rem,7.3vw,6.4rem)] pt-[calc(var(--fs)*1.2)]">
         <h1 className="absolute z-2 top-0 left-[2.4%] font-display font-extrabold text-[length:var(--fs)] leading-none tracking-tight text-balance pointer-events-none">
           <span className="block text-red line-mask"><span data-line className="block">{title}</span></span>
-          <span className="block text-white line-mask"><span data-line className="block">{subtitle}</span></span>
+          {subtitle && <span className="block text-white line-mask"><span data-line className="block">{subtitle}</span></span>}
         </h1>
         <div ref={frame} className="relative aspect-cinema overflow-hidden origin-top will-change-transform after:absolute after:inset-0 after:bg-linear-to-b after:from-black/12 after:via-black/0 after:via-40% after:to-black/28">
           <Photo {...cover} priority sizes="(min-width: 901px) 84vw, 100vw" className="absolute! inset-0" imgClass="object-[50%_30%] origin-[50%_40%]" />

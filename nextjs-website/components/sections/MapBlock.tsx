@@ -1,8 +1,8 @@
 import MoreLink from "@/components/ui/MoreLink";
-import type { ContactPage } from "@/content/types";
+import type { MapData } from "@/content/types";
 
 // .map: mappa illustrata del centro storico (disegno copiato dalla demo; i colori della mappa restano nel disegno)
-export default function MapBlock({ title, lines, link }: ContactPage["map"]) {
+export default function MapBlock({ title, lines, link }: MapData) {
   return (
     <section aria-label="Mappa" className="relative mx-gutter bg-ivory overflow-hidden h-[560px] lg:h-auto lg:aspect-panorama">
       <svg className="absolute inset-0 size-full" viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="mapT">

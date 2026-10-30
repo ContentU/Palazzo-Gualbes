@@ -1,8 +1,11 @@
-// Tipi dei contenuti: solo i campi che la demo mostra. In Phase 8 gli schemi Sanity li rispecchiano uno a uno.
+// Tipi dei contenuti: gli schemi Sanity (sanity/schemaTypes) li rispecchiano uno a uno.
+// I testi lunghi (campi "text", "lead"…) vanno a capo per separare i paragrafi.
 
 /** hotspot: punto focale scelto in Studio (0–1) */
 export type Img = { src: string; alt: string; warm?: boolean; hotspot?: { x: number; y: number } };
 export type LinkItem = { label: string; href: string };
+/** meta title e meta description della pagina */
+export type Seo = { title?: string; description?: string };
 
 export type SiteSettings = {
   street: string;
@@ -18,32 +21,57 @@ export type SiteSettings = {
   credits: string;
 };
 
-export type SuiteCard = { title: string; text: string; image: Img; href: string };
+/** href facoltativo: senza, la card non è cliccabile (es. attività di Experience) */
+export type SuiteCard = { title: string; text: string; image: Img; href?: string };
 
 export type SuitesSliderData = {
   coverImage: Img;
   coverTitle: string[];
   cta: LinkItem;
   asideText: string;
+  asideLink?: LinkItem;
   suites: SuiteCard[];
 };
 
-export type InfoData = { title: string; text: string; contact: string; small: Img; big: Img };
+// Sezioni riusate in più pagine
+export type HeroData = { title: string; a: Img; b: Img; text: string }; // AboutHero
+export type MainTextData = { title: string; text: string; link?: LinkItem; big: Img; small: Img; tiny: Img }; // MainText
+export type AboutTextData = MainTextData & { full: Img }; // AboutText
+export type LeavesData = { title: string; text: string; link?: LinkItem; a: Img; b: Img }; // Leaves
+export type ServicesData = { title: string; text: string; link?: LinkItem; a: Img; b: Img; c: Img }; // Services
+export type IntroData = { intro: { title: string; text: string; image: Img }; gallery: Img[] }; // SuiteIntro
+export type InfoData = { title: string; text: string; contact?: string; link?: LinkItem; small: Img; big: Img }; // InfoBlock
 
 export type HomePage = {
+  seo?: Seo;
   hero: { title: string[]; image: Img; text: string; cta: string; ctaUnderline: string; ctaHref: string };
-  mainText: { title: string; text: string; link: LinkItem; big: Img; small: Img; tiny: Img };
+  mainText: MainTextData;
   suites: SuitesSliderData;
-  services: { title: string; text: string; link: LinkItem; a: Img; b: Img; c: Img };
+  services: ServicesData;
   experience: { marquee: string; image: Img; text: string; link: LinkItem };
-  news: { title: string; lead: string; posts: { title: string; href: string; meta: string; image: Img }[] };
-  recommended: { title: string; logos: string[] };
+  news: { title: string; lead: string; link?: LinkItem; posts?: { title: string; href: string; meta: string; image: Img }[] };
+  recommended: { title: string; logos?: string[] };
 };
 
 export type AboutPage = {
-  hero: { title: string; a: Img; b: Img; text: string };
-  text: { title: string; text: string; link: LinkItem; big: Img; small: Img; tiny: Img; full: Img };
-  leaves: { title: string; text: string; a: Img; b: Img };
+  seo?: Seo;
+  hero: HeroData;
+  text: AboutTextData;
+  leaves: LeavesData;
+  welcome: ServicesData;
+  info: InfoData;
+};
+
+export type ServicesPage = { seo?: Seo; hero: HeroData; text: AboutTextData; leaves: LeavesData; info: InfoData };
+export type ExperiencePage = ServicesPage & { activities: SuitesSliderData };
+
+export type StoryPage = {
+  seo?: Seo;
+  hero: HeroData;
+  origins: AboutTextData;
+  transformations: LeavesData;
+  printing: ServicesData;
+  recovery: IntroData;
   info: InfoData;
 };
 
@@ -56,18 +84,19 @@ export type Room = {
   small: Img;
 };
 
-export type RoomsPage = { title: string; lead: string; rooms: Room[]; info: InfoData };
+export type RoomsPage = { seo?: Seo; title: string; lead: string; intro: LeavesData; rooms: Room[] };
 
 export type Suite = {
+  seo?: Seo;
   slug: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   cover: Img;
   text: string;
   specs: string;
-  intro: { title: string; text: string; image: Img };
+  intro: IntroData["intro"];
   gallery: Img[];
-  stay: { title: string; features: { label: string; text: string; items: string[] }[] };
+  stay: { title?: string; features: { label: string; text?: string; items: string[] }[] };
   others: SuitesSliderData;
 };
 
@@ -94,19 +123,19 @@ export type Article = {
   related?: string[];
 };
 
-export type JournalPage = {
-  title: string;
-  lead: string;
-  featured: string;
-  newsletter: { title: string; text: string; label: string; placeholder: string; button: string; done: string };
-};
+export type JournalPage = { seo?: Seo; title: string; lead: string; featured?: string };
 
 export type ContactPage = {
+  seo?: Seo;
   title: string;
   lead: string;
   info: { title: string; lines: string[]; href?: string }[];
   formTitle: string;
-  map: { title: string; lines: string[]; link: LinkItem };
+  formText?: string;
   arrive: { title: string; text: string; link: LinkItem };
-  faq: { num: string; title: string; text: string; details: { term: string; desc: string }[] }[];
+  faq: { num: string; title: string; text: string; details?: { term: string; desc: string }[] }[];
 };
+
+// Componenti non più usati nelle pagine (testi V1), tenuti per un eventuale riuso
+export type MapData = { title: string; lines: string[]; link: LinkItem };
+export type NewsletterData = { title: string; text: string; label: string; placeholder: string; button: string; done: string };

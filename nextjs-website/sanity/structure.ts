@@ -5,7 +5,10 @@ const singletons = [
   ['siteSettings', 'Impostazioni sito'],
   ['homePage', 'Home'],
   ['aboutPage', 'Il Palazzo'],
+  ['storyPage', 'La Storia'],
   ['roomsPage', 'Camere'],
+  ['servicesPage', 'Servizi'],
+  ['experiencePage', 'Experience'],
   ['journalPage', 'Journal'],
   ['contactPage', 'Contatti'],
 ] as const

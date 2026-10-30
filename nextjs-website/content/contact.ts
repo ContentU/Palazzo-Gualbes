@@ -1,55 +1,46 @@
 import type { ContactPage } from "./types";
 
 export const contact: ContactPage = {
-  title: "Contatti",
-  lead: "Scrivici per disponibilità, soggiorni lunghi o richieste particolari. Rispondiamo entro un giorno, in italiano o in inglese.",
-  info: [
-    { title: "Indirizzo", lines: ["Via del Celso, 36", "90134 Palermo"] },
-    { title: "Telefono e WhatsApp", lines: ["+39 000 000 0000"], href: "tel:+390000000000" },
-    { title: "Email", lines: ["info@palazzogualbes.it"], href: "mailto:info@palazzogualbes.it" },
-    { title: "Accoglienza", lines: ["Ogni giorno, 8:00 – 22:00", "Check-in dalle 15:00 · Check-out entro le 11:00"] },
-  ],
-  formTitle: "Richiedi disponibilità",
-  map: {
-    title: "Palazzo Gualbes",
-    lines: ["Via del Celso, 36 · 90134 Palermo", "A 3 minuti a piedi dalla Cattedrale"],
-    link: { label: "Apri in Google Maps", href: "https://www.google.com/maps/search/?api=1&query=Via+del+Celso+36+Palermo" },
+  seo: {
+    title: "Contatti e informazioni — Palazzo Gualbes",
+    description: "Contatta Palazzo Gualbes per informazioni su appartamenti, servizi e soggiorni nel centro storico di Palermo.",
   },
+  title: "Contattaci",
+  lead: "Hai bisogno di informazioni sugli appartamenti, sui servizi o sull'organizzazione del tuo soggiorno? Siamo a disposizione per aiutarti.",
+  info: [
+    { title: "Indirizzo", lines: ["Palazzo Gualbes", "Via del Celso 31, Palermo"] },
+    { title: "Telefono e WhatsApp", lines: ["+39 393 476 7937"], href: "tel:+393934767937" },
+    { title: "Email", lines: ["info@palazzogualbes.it"], href: "mailto:info@palazzogualbes.it" },
+    { title: "Assistenza", lines: ["07:00–22:00"] },
+    { title: "Check-in e check-out", lines: ["Check-in: dalle 14:00", "Check-out: entro le 11:00"] },
+  ],
+  formTitle: "Richiedi informazioni",
+  formText: "Compila il modulo per ricevere informazioni sugli appartamenti, sulla disponibilità o sui servizi di Palazzo Gualbes.",
   arrive: {
-    title: "Come arrivare",
-    text: "Il Palazzo è nel cuore del centro storico, tra la Cattedrale e il mercato di Ballarò. Ecco come raggiungerci.",
-    link: { label: "Prenota un transfer", href: "mailto:info@palazzogualbes.it" },
+    title: "Nel cuore del centro storico",
+    text: "Palazzo Gualbes si trova in Via del Celso, nel centro storico di Palermo, vicino ai principali monumenti e a Via Maqueda.",
+    link: { label: "Contattaci prima dell'arrivo", href: "#richiesta" },
   },
   faq: [
     {
       num: "01",
       title: "Dall'aeroporto",
-      text: "L'aeroporto Falcone e Borsellino dista circa 35 km. Il modo più semplice è il nostro transfer privato, da prenotare almeno 48 ore prima: l'autista ti aspetta agli arrivi e ti lascia davanti al portone.",
-      details: [
-        { term: "Transfer o taxi", desc: "35–45 minuti" },
-        { term: "Treno Trinacria Express", desc: "Fino alla Stazione Centrale, poi 20 minuti a piedi o 7 in taxi" },
-        { term: "Autobus", desc: "Navetta per il centro, fermata Stazione Centrale" },
-      ],
+      text: "È disponibile su richiesta un servizio di transfer da e per l'aeroporto. Per informazioni e organizzazione del servizio, contatta la struttura prima del tuo arrivo.",
     },
     {
       num: "02",
       title: "Dalla stazione",
-      text: "Dalla Stazione Centrale risali Via Maqueda fino ai Quattro Canti, poi gira a sinistra su Corso Vittorio Emanuele verso la Cattedrale. Via del Celso è sulla sinistra, poco prima della piazza.",
-      details: [
-        { term: "A piedi", desc: "Circa 1,5 km · 20 minuti" },
-        { term: "In taxi", desc: "7–10 minuti" },
-        { term: "Con i bagagli", desc: "Avvisaci: ti aspettiamo al portone" },
-      ],
+      text: "È possibile richiedere informazioni per organizzare il trasferimento dalla stazione alla struttura.",
     },
     {
       num: "03",
       title: "In auto",
-      text: "Il Palazzo si trova all'interno della ZTL del centro storico. Prima dell'arrivo ti inviamo il percorso consigliato e le indicazioni per il garage convenzionato, a pochi minuti a piedi.",
-      details: [
-        { term: "ZTL", desc: "Comunicaci la targa: ti spieghiamo come accedere per lo scarico bagagli" },
-        { term: "Parcheggio", desc: "Garage convenzionato, tariffa riservata agli ospiti" },
-        { term: "Navigatore", desc: "Imposta \"Via del Celso, Palermo\"" },
-      ],
+      text: "L'accesso al centro storico può essere difficoltoso per chi arriva in auto, a causa delle limitazioni della ZTL. Palazzo Gualbes dispone di una soluzione di parcheggio convenzionato e può fornire informazioni sulle modalità di accesso.",
+    },
+    {
+      num: "04",
+      title: "Accessibilità",
+      text: "L'edificio non dispone di ascensore e presenta rampe di scale. Gli appartamenti non sono accessibili a persone con mobilità ridotta.",
     },
   ],
 };

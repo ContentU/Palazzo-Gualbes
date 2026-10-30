@@ -3,7 +3,10 @@ import { cacheLife, cacheTag } from "next/cache";
 import type { QueryParams } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-import type { AboutPage, Article, Category, ContactPage, HomePage, JournalPage, RoomsPage, SiteSettings, Suite } from "@/content/types";
+import type { Metadata } from "next";
+import type {
+  AboutPage, Article, Category, ContactPage, ExperiencePage, HomePage, JournalPage, RoomsPage, Seo, ServicesPage, SiteSettings, StoryPage, Suite,
+} from "@/content/types";
 
 // Foto Sanity → Img dei componenti; via i campi di sistema (_key, _type…) che finirebbero come attributi HTML
 function clean(v: unknown): unknown {
@@ -41,6 +44,9 @@ export const getSite = () => page<SiteSettings>("siteSettings");
 export const getHome = () => page<HomePage>("homePage");
 export const getAbout = () => page<AboutPage>("aboutPage");
 export const getRooms = () => page<RoomsPage>("roomsPage");
+export const getServices = () => page<ServicesPage>("servicesPage");
+export const getExperience = () => page<ExperiencePage>("experiencePage");
+export const getStory = () => page<StoryPage>("storyPage");
 export const getContact = () => page<ContactPage>("contactPage");
 export const getJournal = () =>
   query<JournalPage>(`*[_id == "journalPage"][0]{..., "featured": featured->slug.current}`, ["journalPage", "article"]);
@@ -57,3 +63,9 @@ export const getArticle = async (slug: string) => {
   const a = await query<Article | null>(`*[_type == "article" && slug.current == $slug][0]${ARTICLE}`, ["article", "category"], { slug });
   return a ? withDate(a) : undefined;
 };
+
+// Meta della pagina dal campo SEO di Sanity; senza titolo SEO resta "<fallback> · Palazzo Gualbes"
+export const seoMeta = (seo: Seo | undefined, fallback?: string): Metadata => ({
+  title: seo?.title ? { absolute: seo.title } : fallback,
+  description: seo?.description,
+});

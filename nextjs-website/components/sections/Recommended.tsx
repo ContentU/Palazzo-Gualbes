@@ -1,7 +1,8 @@
 import type { HomePage } from "@/content/types";
 
-// .rec: loghi segnaposto
+// .rec: riconoscimenti; nascosto finché non ci sono loghi documentati
 export default function Recommended({ title, logos }: HomePage["recommended"]) {
+  if (!logos?.length) return null;
   return (
     <section className="bg-ivory pt-[clamp(60px,5.3vw,74px)] pb-[clamp(80px,9.5vw,130px)]">
       <div className="px-[clamp(20px,10.4vw,143px)]">

@@ -1,5 +1,7 @@
 import { defineField, defineType } from "sanity";
-import { lines, link, links, list, obj, photo, str, txt } from "./fields";
+import {
+  aboutTextFields, heroFields, introFields, leavesFields, lines, link, links, list, mainTextFields, obj, photo, seo, servicesFields, str, txt,
+} from "./fields";
 
 const info = (name: string) => defineField({ name, type: "info" });
 // intestazione fissa: senza un campo "title" Sanity mostrerebbe i primi campi del documento
@@ -31,25 +33,68 @@ export const homePageType = defineType({
   type: "document",
   preview: named("Home"),
   fields: [
+    seo(),
     obj("hero", [lines("title"), photo("image"), txt("text"), str("cta"), str("ctaUnderline"), str("ctaHref")]),
-    obj("mainText", [str("title"), txt("text"), link("link"), photo("big"), photo("small"), photo("tiny")]),
+    obj("mainText", mainTextFields()),
     defineField({ name: "suites", type: "suitesSlider" }),
-    obj("services", [str("title"), txt("text"), link("link"), photo("a"), photo("b"), photo("c")]),
+    obj("services", servicesFields()),
     obj("experience", [str("marquee"), photo("image"), txt("text"), link("link")]),
-    obj("news", [str("title"), txt("lead"), list("posts", "post", [str("title"), str("href"), str("meta"), photo("image")])]),
-    obj("recommended", [str("title"), lines("logos")]),
+    obj("news", [str("title"), txt("lead"), link("link"), list("posts", "post", [str("title"), str("href"), str("meta"), photo("image")])]),
+    obj("recommended", [str("title"), defineField({ name: "logos", type: "array", of: [{ type: "string" }], description: "Solo riconoscimenti documentati: senza loghi la sezione non compare." })]),
   ],
 });
 
+// Il Palazzo: pagina master (Servizi ed Experience ne riprendono la composizione)
 export const aboutPageType = defineType({
   name: "aboutPage",
   title: "Il Palazzo",
   type: "document",
   preview: named("Il Palazzo"),
   fields: [
-    obj("hero", [str("title"), photo("a"), photo("b"), txt("text")]),
-    obj("text", [str("title"), txt("text"), link("link"), photo("big"), photo("small"), photo("tiny"), photo("full")]),
-    obj("leaves", [str("title"), txt("text"), photo("a"), photo("b")]),
+    seo(),
+    obj("hero", heroFields()),
+    obj("text", aboutTextFields()),
+    obj("leaves", leavesFields()),
+    obj("welcome", servicesFields()),
+    info("info"),
+  ],
+});
+
+export const servicesPageType = defineType({
+  name: "servicesPage",
+  title: "Servizi",
+  type: "document",
+  preview: named("Servizi"),
+  fields: [seo(), obj("hero", heroFields()), obj("text", aboutTextFields()), obj("leaves", leavesFields()), info("info")],
+});
+
+export const experiencePageType = defineType({
+  name: "experiencePage",
+  title: "Experience",
+  type: "document",
+  preview: named("Experience"),
+  fields: [
+    seo(),
+    obj("hero", heroFields()),
+    obj("text", aboutTextFields()),
+    obj("leaves", leavesFields()),
+    defineField({ name: "activities", title: "Griglia delle esperienze", type: "suitesSlider" }),
+    info("info"),
+  ],
+});
+
+export const storyPageType = defineType({
+  name: "storyPage",
+  title: "La Storia",
+  type: "document",
+  preview: named("La Storia"),
+  fields: [
+    seo(),
+    obj("hero", heroFields()),
+    obj("origins", aboutTextFields()),
+    obj("transformations", leavesFields()),
+    obj("printing", servicesFields()),
+    obj("recovery", introFields()),
     info("info"),
   ],
 });
@@ -60,10 +105,11 @@ export const roomsPageType = defineType({
   type: "document",
   preview: named("Camere"),
   fields: [
+    seo(),
     str("title"),
     txt("lead"),
+    obj("intro", leavesFields()),
     list("rooms", "room", [str("title"), lines("specs"), str("soon"), link("cta"), photo("big"), photo("small")]),
-    info("info"),
   ],
 });
 
@@ -73,10 +119,10 @@ export const journalPageType = defineType({
   type: "document",
   preview: named("Journal"),
   fields: [
+    seo(),
     str("title"),
     txt("lead"),
     defineField({ name: "featured", title: "Articolo in evidenza", type: "reference", to: [{ type: "article" }] }),
-    obj("newsletter", [str("title"), txt("text"), str("label"), str("placeholder"), str("button"), str("done")]),
   ],
 });
 
@@ -86,11 +132,12 @@ export const contactPageType = defineType({
   type: "document",
   preview: named("Contatti"),
   fields: [
+    seo(),
     str("title"),
     txt("lead"),
     list("info", "infoItem", [str("title"), lines("lines"), str("href")]),
     str("formTitle"),
-    obj("map", [str("title"), lines("lines"), link("link")]),
+    txt("formText"),
     obj("arrive", [str("title"), txt("text"), link("link")]),
     list("faq", "faqItem", [str("num"), str("title"), txt("text"), list("details", "detail", [str("term"), txt("desc")])]),
   ],

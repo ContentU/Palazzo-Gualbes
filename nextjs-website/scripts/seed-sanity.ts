@@ -1,9 +1,5 @@
 // Migrazione una tantum: content/*.ts → Sanity (dataset vuoto).
 // Uso: npx -y tsx --env-file=.env.local scripts/seed-sanity.ts
-import { readFile } from "node:fs/promises";
-import { basename } from "node:path";
-import { randomUUID } from "node:crypto";
-import { createClient } from "next-sanity";
 import { site } from "../content/site";
 import { home } from "../content/home";
 import { about } from "../content/about";
@@ -11,48 +7,9 @@ import { rooms } from "../content/rooms";
 import { suites } from "../content/suites";
 import { articles, categories, journal } from "../content/articles";
 import { contact } from "../content/contact";
+import { experience, services, story } from "../content/pages";
 import type { ArticleBlock } from "../content/types";
-
-const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-  apiVersion: "2026-10-20",
-  token: process.env.SANITY_API_WRITE_TOKEN,
-  useCdn: false,
-});
-
-// _type degli elementi di ogni array di oggetti (come in sanity/schemaTypes)
-const itemType: Record<string, string> = {
-  social: "linkItem", menu: "linkItem", footerLinks: "linkItem", legalLinks: "linkItem",
-  suites: "suiteCard", posts: "post", rooms: "room", features: "feature",
-  info: "infoItem", faq: "faqItem", details: "detail",
-};
-
-const key = () => randomUUID().slice(0, 12);
-const ref = (_ref: string) => ({ _type: "reference", _ref });
-
-// ogni file viene caricato una volta sola, anche se usato in più punti
-const uploads = new Map<string, Promise<string>>();
-const upload = (src: string) => {
-  if (!uploads.has(src))
-    uploads.set(src, readFile(`public${src}`).then((buf) => client.assets.upload("image", buf, { filename: basename(src) })).then((a) => a._id));
-  return uploads.get(src)!;
-};
-
-// Img → photo con asset caricato; elementi degli array con _key e _type
-async function conv(v: unknown, field = ""): Promise<unknown> {
-  if (Array.isArray(v))
-    return Promise.all(v.map(async (x) => {
-      const c = await conv(x);
-      if (!c || typeof c !== "object") return c;
-      return { _key: key(), ...(itemType[field] && { _type: itemType[field] }), ...c };
-    }));
-  if (!v || typeof v !== "object") return v;
-  const o = v as Record<string, unknown>;
-  if (typeof o.src === "string" && "alt" in o)
-    return { _type: "photo", asset: ref(await upload(o.src)), alt: o.alt, ...(o.warm ? { warm: true } : {}) };
-  return Object.fromEntries(await Promise.all(Object.entries(o).map(async ([k, x]) => [k, await conv(x, k)])));
-}
+import { client, conv, key, ref, uploads } from "./sanity-utils";
 
 const block = (b: ArticleBlock) => {
   if (b.type !== "p") {
@@ -103,16 +60,19 @@ async function main() {
     ["siteSettings", site],
     ["homePage", home],
     ["aboutPage", about],
+    ["storyPage", story],
+    ["servicesPage", services],
+    ["experiencePage", experience],
     ["roomsPage", rooms],
     ["journalPage", journal],
     ["contactPage", contact],
   ];
   for (const [type, data] of singletons) {
     const doc = (await conv(data)) as Record<string, unknown>;
-    if (type === "journalPage") doc.featured = ref(artIds[journal.featured]);
+    if (type === "journalPage" && journal.featured) doc.featured = ref(artIds[journal.featured]);
     await client.createOrReplace({ _id: type, _type: type, ...doc });
   }
-  console.log(`Fatto: ${categories.length} categorie, ${suites.length} suite, ${articles.length} articoli, ${uploads.size} foto, 6 pagine.`);
+  console.log(`Fatto: ${categories.length} categorie, ${suites.length} suite, ${articles.length} articoli, ${uploads.size} foto, ${singletons.length} pagine.`);
 }
 
 main().catch((e) => {
