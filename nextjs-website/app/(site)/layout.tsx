@@ -1,6 +1,7 @@
 import IconSprite from "@/components/site/IconSprite";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
+import BookingDialog from "@/components/site/BookingDialog";
 import SmoothScroll from "@/components/motion/SmoothScroll";
 import MotionProvider from "@/components/motion/MotionProvider";
 import { getSite } from "@/lib/content";
@@ -13,6 +14,7 @@ export default async function SiteLayout({ children }: LayoutProps<"/">) {
       <Header site={site} />
       <main id="top" className="overflow-x-clip">{children}</main>
       <Footer site={site} />
+      <BookingDialog />
       <SmoothScroll />
       <MotionProvider />
     </>

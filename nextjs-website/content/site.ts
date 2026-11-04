@@ -1,8 +1,8 @@
 import type { SiteSettings } from "./types";
 
-// Pagina del booking engine Beddy (usata da "Prenota", "Prenota il tuo soggiorno", "Verifica disponibilità").
+// Booking engine Beddy (usato da "Prenota", "Prenota il tuo soggiorno", "Verifica disponibilità"): BookingDialog lo apre in una finestra sul sito.
 // Su Sanity i link sono in siteSettings.bookHref, homePage.hero.ctaHref e nelle CTA delle suite.
-export const BOOKING_HREF = "/prenota";
+export const BOOKING_HREF = "https://paazzgualbes.beddy.io/?lang=it";
 export const BEDDY_WIDGET = "9a7c037215d1d";
 
 export const site: SiteSettings = {

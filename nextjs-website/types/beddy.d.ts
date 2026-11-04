@@ -1,13 +1,10 @@
-// Web component del booking engine Beddy (caricati da cdn.beddy.io)
+// Web component della barra di prenotazione Beddy (caricata da cdn.beddy.io)
 import "react";
-
-type BeddyProps = { lang: string; widgetcode: string };
 
 declare module "react" {
   namespace JSX {
     interface IntrinsicElements {
-      "beddy-booking-engine": BeddyProps;
-      "beddy-bar": BeddyProps;
+      "beddy-bar": { lang: string; widgetcode: string };
     }
   }
 }
