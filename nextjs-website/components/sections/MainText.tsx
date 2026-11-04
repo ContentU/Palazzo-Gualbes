@@ -4,12 +4,12 @@ import MoreLink from "@/components/ui/MoreLink";
 import Text from "@/components/ui/Text";
 import type { MainTextData } from "@/content/types";
 
-type Props = MainTextData & { afterHero?: boolean; children?: ReactNode };
+type Props = MainTextData & { children?: ReactNode };
 
 // .ed + .mt__*: titolo, collage di tre foto e testo (home e Il Palazzo)
-export default function MainText({ title, text, link, big, small, tiny, afterHero, children }: Props) {
+export default function MainText({ title, text, link, big, small, tiny, children }: Props) {
   return (
-    <section id="palazzo" className={`py-section-lg ${afterHero ? "pt-[clamp(140px,19vw,270px)]" : ""}`}>
+    <section id="palazzo" className="py-section-lg">
       <div className="grid grid-cols-24 gap-x-grid px-gutter items-start">
         <h2 data-words className="col-span-full mb-9 lg:col-[1/9] lg:row-1 lg:self-center lg:pl-[1%] lg:mb-0 font-display font-semibold text-h4 tracking-tight text-balance text-red">
           {title}

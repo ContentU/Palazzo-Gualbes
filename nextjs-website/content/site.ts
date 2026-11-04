@@ -1,7 +1,9 @@
 import type { SiteSettings } from "./types";
 
-// Booking engine Beddy: sostituire con l'URL definitivo (usato da "Prenota", "Prenota il tuo soggiorno", "Verifica disponibilità")
-export const BOOKING_HREF = "/contatti";
+// Pagina del booking engine Beddy (usata da "Prenota", "Prenota il tuo soggiorno", "Verifica disponibilità").
+// Su Sanity i link sono in siteSettings.bookHref, homePage.hero.ctaHref e nelle CTA delle suite.
+export const BOOKING_HREF = "/prenota";
+export const BEDDY_WIDGET = "9a7c037215d1d";
 
 export const site: SiteSettings = {
   street: "Via del Celso 31",

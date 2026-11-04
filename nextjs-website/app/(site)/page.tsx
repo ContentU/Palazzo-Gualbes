@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HeroHome from "@/components/sections/HeroHome";
+import BookingBar from "@/components/sections/BookingBar";
 import MainText from "@/components/sections/MainText";
 import SuitesSlider from "@/components/sections/SuitesSlider";
 import Services from "@/components/sections/Services";
@@ -17,7 +18,8 @@ export default async function Home() {
   return (
     <>
       <HeroHome hero={home.hero} />
-      <MainText {...home.mainText} afterHero />
+      <BookingBar />
+      <MainText {...home.mainText} />
       <SuitesSlider {...home.suites} />
       <Services {...home.services} />
       <Experience {...home.experience} />
