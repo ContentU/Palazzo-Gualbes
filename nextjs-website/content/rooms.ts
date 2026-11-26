@@ -1,5 +1,5 @@
 import type { RoomsPage } from "./types";
-import { demo } from "./demo";
+import { foto } from "./foto";
 
 export const rooms: RoomsPage = {
   seo: {
@@ -14,8 +14,8 @@ export const rooms: RoomsPage = {
       "Ogni appartamento di Palazzo Gualbes ha un carattere personale, definito dalla scelta dei materiali, dagli arredi e dalle soluzioni artigianali.",
       "Spazi pensati per accogliere coppie, famiglie e piccoli gruppi, con il comfort di ambienti indipendenti e una posizione ideale per vivere il centro storico di Palermo.",
     ].join("\n\n"),
-    a: demo("18", true),
-    b: demo("01"),
+    a: foto("roomBig"),
+    b: foto("roomSmall"),
   },
   // card: testi sintetici della Home; Appartamento 14 e Appartamento 4 da aggiungere quando completi
   rooms: [
@@ -23,15 +23,15 @@ export const rooms: RoomsPage = {
       title: "Suite",
       specs: ["52 m², zona living e balcone su Discesa Santamarina.", "Uno spazio accogliente con cucina attrezzata e arredi personalizzati, fino a tre ospiti."],
       cta: { label: "Scopri l'appartamento", href: "/camere/suite" },
-      big: demo("04", true),
-      small: demo("19"),
+      big: foto("supDivano"),
+      small: foto("supLivingArte"),
     },
     {
-      title: "Family Suite",
+      title: "Suite Deluxe",
       specs: ["Due camere matrimoniali, ambienti da condividere e una terrazza privata di 25 m² con vista sulla cupola del Teatro Massimo.", "Fino a cinque ospiti."],
       cta: { label: "Scopri l'appartamento", href: "/camere/family-suite" },
-      big: demo("10", true),
-      small: demo("06"),
+      big: foto("famCameraPietra22"),
+      small: foto("famTerrazza02"),
     },
   ],
 };

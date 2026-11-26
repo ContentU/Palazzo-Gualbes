@@ -19,7 +19,7 @@ Quale file di `content/` corrisponde a quale pagina:
 | Home | `content/home.ts` |
 | Il Palazzo | `content/about.ts` |
 | Suite e appartamenti | `content/rooms.ts` |
-| Schede suite (Suite, Family Suite) e card delle suite | `content/suites.ts` |
+| Schede suite (Suite, Suite Deluxe) e card delle suite | `content/suites.ts` |
 | Servizi, Experience, La Storia | `content/pages.ts` |
 | Contatti | `content/contact.ts` |
 | Journal (pagina; gli articoli sono demo) | `content/articles.ts` |

@@ -1,25 +1,25 @@
 import type { SuiteCard, Suite, SuitesSliderData } from "./types";
-import { demo } from "./demo";
+import { foto } from "./foto";
 import { BOOKING_HREF } from "./site";
 
 // Card brevi (testi della Home): usate in Home e nelle schede ("Altre suite")
 export const suiteCard: SuiteCard = {
   title: "Suite",
   text: "52 m², zona living e balcone su Discesa Santamarina. Uno spazio accogliente con cucina attrezzata e arredi personalizzati, fino a tre ospiti.",
-  image: demo("17"),
+  image: foto("suiteLiving"),
   href: "/camere/suite",
   linkLabel: "Scopri la Suite",
 };
 export const familySuiteCard: SuiteCard = {
-  title: "Family Suite",
+  title: "Suite Deluxe",
   text: "Due camere matrimoniali, ambienti da condividere e una terrazza privata di 25 m² con vista sulla cupola del Teatro Massimo. Fino a cinque ospiti.",
-  image: demo("03", true),
+  image: foto("famCucina"),
   href: "/camere/family-suite",
-  linkLabel: "Scopri la Family Suite",
+  linkLabel: "Scopri la Suite Deluxe",
 };
 // Appartamento 14 e Appartamento 4: schede incomplete, non pubblicare (testi V1)
 
-const others = (text: string, cards: SuiteCard[], coverImage = demo("17")): SuitesSliderData => ({
+const others = (text: string, cards: SuiteCard[], coverImage = foto("suiteLiving")): SuitesSliderData => ({
   coverImage,
   coverTitle: ["Scopri gli", "altri", "appartamenti"],
   cta: { label: "Verifica disponibilità", href: BOOKING_HREF },
@@ -37,24 +37,24 @@ export const suites: Suite[] = [
   {
     slug: "family-suite",
     seo: {
-      title: "Family Suite con terrazza a Palermo",
-      description: "Family Suite di 88 m² a Palermo per cinque ospiti, con due camere matrimoniali e terrazza privata di 25 m².",
+      title: "Suite Deluxe con terrazza a Palermo",
+      description: "Suite Deluxe di 88 m² a Palermo per cinque ospiti, con due camere matrimoniali e terrazza privata di 25 m².",
     },
-    title: "Family Suite",
-    cover: demo("05"),
+    title: "Suite Deluxe",
+    cover: foto("soggiornoMarmo"),
     text: "Due camere matrimoniali, ambienti da condividere e una terrazza privata con vista sulla cupola del Teatro Massimo.",
     specs: "88 m² + 25 m² di terrazza · fino a 5 ospiti · 2 camere · 3 bagni · secondo piano",
     intro: {
       title: "Più spazio da vivere, insieme",
       text: [
-        "La Family Suite è pensata per famiglie e piccoli gruppi che desiderano condividere il soggiorno a Palermo senza rinunciare ai propri spazi.",
+        "La Suite Deluxe è pensata per famiglie e piccoli gruppi che desiderano condividere il soggiorno a Palermo senza rinunciare ai propri spazi.",
         "L'appartamento dispone di due camere matrimoniali, una con letto king size e una con letto queen size, di una zona living con divano letto e di una cucina attrezzata.",
         "La terrazza privata di 25 m² si affaccia sull'atrio del Palazzo e offre una vista sulla cupola del Teatro Massimo. Gli altri affacci guardano verso Discesa Santamarina.",
         "Un ambiente in cui ritrovare la comodità di una casa, con spazi interni ed esterni da vivere secondo i propri ritmi.",
       ].join("\n\n"),
-      image: demo("14", true),
+      image: foto("famTerrazzaSera61"),
     },
-    gallery: [demo("01"), demo("06", true), demo("10"), demo("02", true), demo("11"), demo("24", true), demo("15"), demo("07")],
+    gallery: [foto("famCamera21"), foto("famTerrazza47"), foto("famVasca55"), foto("famComodino36"), foto("famBagno27"), foto("famTerrazzaTavolo51"), foto("famCorridoio14"), foto("famTerrazza02")],
     stay: {
       features: [
         {
@@ -82,7 +82,7 @@ export const suites: Suite[] = [
       description: "Suite di 52 m² per tre ospiti a Palermo, con zona living, cucina attrezzata, due bagni e balcone su Discesa Santamarina.",
     },
     title: "Suite",
-    cover: demo("04"),
+    cover: foto("supCameraArmadio"),
     text: "Un appartamento con ambienti personalizzati, zona living e balcone sul centro storico di Palermo.",
     specs: "52 m² · fino a 3 ospiti · 1 camera · 2 bagni · secondo piano",
     intro: {
@@ -93,9 +93,9 @@ export const suites: Suite[] = [
         "Dal balcone affacciato su Discesa Santamarina è possibile mantenere un contatto diretto con le strade del centro storico.",
         "La presenza di due bagni con doccia e di un angolo lavanderia completa la dotazione dell'appartamento.",
       ].join("\n\n"),
-      image: demo("19", true),
+      image: foto("supPranzo"),
     },
-    gallery: [demo("07"), demo("12", true), demo("16"), demo("09", true), demo("22"), demo("13", true), demo("25"), demo("18")],
+    gallery: [foto("supLivingAlto"), foto("supLetto3"), foto("supPranzo11"), foto("supArmadioLetto"), foto("supDoccia"), foto("supCorridoio"), foto("supBagnoVetro"), foto("supDivano")],
     stay: {
       features: [
         {
@@ -114,7 +114,7 @@ export const suites: Suite[] = [
     others: others(
       "Ogni appartamento di Palazzo Gualbes offre spazi e caratteristiche differenti. Scopri le altre soluzioni e trova quella più adatta al tuo soggiorno.",
       [familySuiteCard],
-      demo("03", true),
+      foto("famCucina"),
     ),
   },
 ];

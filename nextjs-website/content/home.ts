@@ -1,4 +1,5 @@
 import type { HomePage } from "./types";
+import { foto } from "./foto";
 import { demo } from "./demo";
 import { BOOKING_HREF } from "./site";
 import { familySuiteCard, suiteCard } from "./suites";
@@ -12,7 +13,7 @@ export const home: HomePage = {
   },
   hero: {
     title: ["La tua casa", "nel cuore", "di Palermo."],
-    image: { src: "/images/demo/02.webp", alt: "Poltrona rosa davanti al muro in pietra originale di un appartamento" },
+    image: foto("corteUlivo"),
     text: "Quattro appartamenti di design in un palazzo storico, tra dettagli artigianali, comfort contemporaneo e il piacere di vivere la città.",
     cta: "Prenota",
     ctaUnderline: "il tuo soggiorno",
@@ -25,12 +26,12 @@ export const home: HomePage = {
       "Quattro appartamenti progettati con cura, dove materiali naturali, arredi personalizzati e dettagli artigianali creano ambienti accoglienti, da vivere con la libertà e il comfort di una casa.",
     ),
     link: { label: "Scopri il Palazzo", href: "/il-palazzo" },
-    big: demo("21", true),
-    small: demo("12"),
-    tiny: demo("18", true),
+    big: foto("cameraPietra"),
+    small: foto("livingLuce"),
+    tiny: foto("divanoPietra"),
   },
   suites: {
-    coverImage: demo("01"),
+    coverImage: foto("famGiorno"),
     coverTitle: ["Quattro modi", "di sentirsi", "a casa"],
     cta: { label: "Scopri gli appartamenti", href: "/camere" },
     asideText: "Ogni appartamento ha una propria identità. Spazi, materiali e soluzioni su misura danno forma ad ambienti pensati per soggiornare a Palermo in coppia, in famiglia o con gli amici.",
@@ -44,9 +45,9 @@ export const home: HomePage = {
       "Un'accoglienza attenta, che lascia spazio alla libertà di organizzare ogni giornata secondo i propri ritmi.",
     ),
     link: { label: "Scopri i servizi", href: "/servizi" },
-    a: demo("08", true),
-    b: demo("11"),
-    c: demo("13", true),
+    a: foto("marmoDettaglio"),
+    b: foto("caffe"),
+    c: foto("aperitivo"),
   },
   experience: {
     marquee: "Palermo, appena fuori dalla porta.",

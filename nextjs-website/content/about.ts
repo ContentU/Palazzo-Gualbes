@@ -1,5 +1,5 @@
 import type { AboutPage } from "./types";
-import { demo } from "./demo";
+import { foto } from "./foto";
 
 const p = (...paras: string[]) => paras.join("\n\n");
 
@@ -11,8 +11,8 @@ export const about: AboutPage = {
   },
   hero: {
     title: "Palazzo Gualbes. Una storia da abitare.",
-    a: demo("23"),
-    b: demo("12", true),
+    a: foto("portone"),
+    b: foto("corteSera"),
     text: "Nel centro storico di Palermo, una dimora antica accoglie appartamenti di design, dove materiali naturali, dettagli artigianali e comfort contemporaneo si incontrano.",
   },
   text: {
@@ -23,10 +23,10 @@ export const about: AboutPage = {
       "Un luogo da cui partire alla scoperta di Palermo e in cui ritrovare, al ritorno, un'atmosfera accogliente e familiare.",
     ),
     link: { label: "Scopri gli appartamenti", href: "/camere" },
-    big: demo("25", true),
-    small: demo("18"),
-    tiny: demo("20", true),
-    full: demo("24"),
+    big: foto("corteGiorno"),
+    small: foto("corteGiornoV"),
+    tiny: foto("pietraV"),
+    full: foto("pietraH"),
   },
   leaves: {
     title: "Il carattere della storia, la cura del presente",
@@ -36,8 +36,8 @@ export const about: AboutPage = {
       "Negli appartamenti, il legno, il marmo e le soluzioni artigianali realizzate su misura esprimono una precisa attenzione alla scelta dei materiali e alla qualità degli ambienti. Ogni dettaglio contribuisce a creare spazi dal carattere personale, in cui design e funzionalità convivono naturalmente.",
     ),
     link: { label: "Approfondisci la storia del Palazzo", href: "/la-storia" },
-    a: demo("22"),
-    b: demo("13", true),
+    a: foto("soggiornoMarmo"),
+    b: foto("melograno"),
   },
   welcome: {
     title: "Il piacere di sentirsi accolti",
@@ -46,15 +46,15 @@ export const about: AboutPage = {
       "La posizione nel centro storico permette di raggiungere a piedi monumenti, botteghe e luoghi della tradizione gastronomica. Gli appartamenti offrono ambienti tranquilli e indipendenti, dove ritrovare il proprio spazio dopo una giornata in città.",
       "Un equilibrio tra scoperta, autonomia e accoglienza personale.",
     ),
-    a: demo("06", true),
-    b: demo("15"),
-    c: demo("09", true),
+    a: foto("ulivoTronco"),
+    b: foto("scalaRitratti"),
+    c: foto("aperitivo"),
   },
   info: {
     title: "Organizziamo il tuo soggiorno?",
     text: "Hai bisogno di informazioni sugli appartamenti o di assistenza per organizzare il tuo arrivo a Palermo? Siamo a disposizione per aiutarti.",
     link: { label: "Contattaci", href: "/contatti" },
-    small: demo("11", true),
-    big: demo("16"),
+    small: foto("famTerrazzaTavolo51"),
+    big: foto("famTerrazza47"),
   },
 };

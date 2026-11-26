@@ -1,4 +1,5 @@
 import type { ExperiencePage, ServicesPage, StoryPage } from "./types";
+import { foto } from "./foto";
 import { demo } from "./demo";
 
 const p = (...paras: string[]) => paras.join("\n\n");
@@ -11,31 +12,31 @@ export const services: ServicesPage = {
   },
   hero: {
     title: "Il piacere di sentirsi accolti",
-    a: demo("08", true),
-    b: demo("21"),
+    a: foto("famLivingAlto"),
+    b: foto("corteGiorno"),
     text: "Comfort, attenzioni e servizi pensati per vivere Palermo con la libertà di una casa e la tranquillità di avere un punto di riferimento durante il soggiorno.",
   },
   text: {
     title: "Il comfort di sentirsi a casa",
     text: "A Palazzo Gualbes ogni appartamento è pensato per offrire autonomia e comodità, con dotazioni per il soggiorno quotidiano e piccole attenzioni all'arrivo. Wi-Fi, climatizzazione, TV e cassaforte si accompagnano a biancheria, linea bagno Moro, pantofole, acqua, caffè, tè, welcome kit e kit colazione.",
     link: { label: "Scopri gli appartamenti", href: "/camere" },
-    big: demo("10", true),
-    small: demo("14"),
-    tiny: demo("02", true),
-    full: demo("15"),
+    big: foto("supCameraArmadio"),
+    small: foto("supCaffe"),
+    tiny: foto("lavanderia"),
+    full: foto("tavoloFrutta"),
   },
   leaves: {
     title: "Un'accoglienza attenta, nei tuoi tempi",
     text: "L'indipendenza di un appartamento si unisce all'assistenza di Palazzo Gualbes. Durante il soggiorno puoi contare sul supporto agli ospiti, sul deposito bagagli e sul servizio di pulizia. Su richiesta sono disponibili transfer, parcheggio convenzionato e cambio biancheria, secondo le condizioni comunicate dalla struttura.",
-    a: demo("11"),
-    b: demo("19", true),
+    a: foto("supLetto4"),
+    b: foto("kitMoro"),
   },
   info: {
     title: "Hai bisogno di informazioni sui servizi?",
     text: "Contattaci per conoscere le modalità di assistenza, il transfer o le possibilità di parcheggio convenzionato prima del tuo arrivo.",
     link: { label: "Contattaci", href: "/contatti" },
-    small: demo("13", true),
-    big: demo("06"),
+    small: foto("flaconiMoro"),
+    big: foto("pietraIntonaco"),
   },
 };
 
